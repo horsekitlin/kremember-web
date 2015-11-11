@@ -1,0 +1,38 @@
+{
+  "name": "kremember-web",
+  "version": "0.0.1",
+  "description": "kremember Web Side",
+  "author": "Tomas <horsekit1982@gmail.com>",
+  "dependencies": {
+    "babel": "^5.8.21",
+    "babel-core": "^5.5.5",
+    "bootstrap": "^3.3.4",
+    "event": "^1.0.0",
+    "flux": "^2.1.1",
+    "jquery": "^2.1.4",
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+    "mongoose": "^4.2.4",
+    "react-datepicker": "^0.15.2"
+  },
+  "devDependencies": {
+    "babel-loader": "^5.1.4",
+    "css-loader": "^0.14.4",
+    "file-loader": "^0.8.4",
+    "html-webpack-plugin": "^1.6.2",
+    "keymirror": "^0.1.1",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "sass-loader": "^1.0.2",
+    "style-loader": "^0.12.3",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.12.3"
+  },
+  "engines": {
+    "node": "4.0.0"
+  },
+  "scripts": {
+    "dev": "rm -rf public && webpack -p --config webpack.config.js && webpack-dev-server --content-base public/",
+    "build": "rm -rf public; webpack -p --config webpack.config.js"
+  }
+}
