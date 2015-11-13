@@ -33,6 +33,7 @@
   },
   "scripts": {
     "dev": "rm -rf public && webpack -p --config webpack.config.js && webpack-dev-server --content-base public/",
-    "build": "rm -rf public; webpack -p --config webpack.config.js"
+    "build": "rm -rf public; webpack -p --config webpack.config.js",
+    "clean" : "rm -rf public"
   }
 }
