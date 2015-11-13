@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var websetting = require('./config.js');
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 var nodeModulePath = path.resolve(__dirname, 'node_modules');
@@ -19,8 +20,9 @@ keys.map(function(key){
     plugins.push(
         new HtmlWebpackPlugin({
             title : key,
+            appId : websetting.facebook.appId,
             javascript : "js/" + key + ".js",
-            template : './layout/index.html',
+            template : websetting.layout,
             filename : key + '.html',
         }));
 });

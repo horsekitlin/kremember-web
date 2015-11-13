@@ -9,7 +9,6 @@ export default {
         });
     },
     List : () => {
-        console.log(123);
         Dispatcher.handleMemberAction({
             actionType : Constants.Member.LIST,
         });

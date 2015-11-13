@@ -1,3 +1,5 @@
+import websetting from '../../config';
+
 export default class NavBar extends React.Component {
     constructor(props){
         super(props);
@@ -27,7 +29,8 @@ export default class NavBar extends React.Component {
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul className="nav navbar-nav">
                             <li className="active">
-                                <a href="/public/createmember.html">
+                                <a
+                                    href={websetting.client + "/createmember.html"}>
                                     新增記事
                                     <span className="sr-only">(current)</span>
                                 </a>

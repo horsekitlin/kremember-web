@@ -1,3 +1,5 @@
+import websetting from '../../config';
+import { redirect } from '../utils/group';
 import { fetch_to } from '../utils/requests';
 import { Notifier, Users } from '../stores';
 
@@ -14,7 +16,7 @@ export default{
             }else{
                 data.token = res.data.token;
                 Users.update('item', data);
-                location.href='/public/home.html';
+                redirect('/home.html');
             }
         });
     }

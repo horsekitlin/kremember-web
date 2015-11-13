@@ -54,7 +54,6 @@ class Login extends PageBase {
             posts : posts
         }
         Actions.Member.Create(data);
-        console.log(data);
     }
     render(){
         return (

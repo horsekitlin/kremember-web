@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { redirect } from '../utils/group';
 import { fetch_to } from '../utils/requests';
 import { Notifier, Member, Users } from '../stores';
 
@@ -9,7 +10,6 @@ export default{
             token : user.token
         }).done((res) => {
             if(res.status === 200){
-                console.log(res);
                 Member.update('list', res.data.content);
                 Notifier.reloadpage();
             }
@@ -27,7 +27,7 @@ export default{
         })
         .done((res) => {
             if(res.status === 200){
-                location.href='/public/home.html';
+                redirect('home.html');
             }else{
                 alert('新增失敗');
             }

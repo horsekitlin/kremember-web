@@ -1,6 +1,7 @@
 require('../../node_modules/bootstrap/dist/css/bootstrap.min.css');
 require('../scss/main.scss');
 import PageBase from '../utils/PageBase';
+import websetting from '../../config';
 import { Facebook } from '../components';
 import { Users } from '../actions';
 
@@ -16,8 +17,8 @@ class Login extends PageBase {
             <div className='text-center'>
                 <Facebook
                     loginHandler = {this.login}
-                    appId='519826671522565'
-                    scope="public_profile, email, user_birthday"/>
+                    appId = {websetting.facebook.appId}
+                    scope = {websetting.facebook.scope}/>
             </div>
         );
     }

@@ -1,7 +1,8 @@
 import PageBase from '../utils/PageBase';
-import { Navbar, Post } from '../components';
 import Stores from '../stores';
 import Actions from '../actions';
+import { Navbar, Post } from '../components';
+import { redirect } from '../utils/group';
 
 class Login extends PageBase {
     constructor(props){
@@ -18,7 +19,7 @@ class Login extends PageBase {
         var self = this.state.self;
         if(_.isUndefined(self)
             || _.isUndefined(self.token)){
-            location.href = '/public/login.html';
+                redirect('login.html');
         }
     }
     render(){

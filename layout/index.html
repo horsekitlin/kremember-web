@@ -17,7 +17,7 @@
         }(document, 'script', 'facebook-jssdk'));
         window.fbAsyncInit = function() {
             FB.init({
-            appId      : '519786858193213',
+                appId      : {%= o.htmlWebpackPlugin.options.appId %},
             xfbml      : true,
             status : true,
             cookie : true,

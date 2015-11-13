@@ -1,4 +1,4 @@
-import config from '../config';
+var config = require('../../config.js');
 
 export default {
     fetch_to : (route, data, headers={}) => {
