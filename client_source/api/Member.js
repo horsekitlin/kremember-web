@@ -26,8 +26,9 @@ export default{
             token : user.token
         })
         .done((res) => {
+            console.log(res.status);
             if(res.status === 200){
-                redirect('home.html');
+                redirect('/home.html');
             }else{
                 alert('新增失敗');
             }
