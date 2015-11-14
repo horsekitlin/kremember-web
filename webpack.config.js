@@ -38,6 +38,9 @@ plugins.push(
   })
 );
 
+//uglifyjs
+plugins.push(new webpack.optimize.UglifyJsPlugin());
+
 var config = {
   devtool: 'eval',
   src : ['webpack-dev-server/client?http://localhost:8080']
@@ -69,7 +72,7 @@ config.module.loaders= [
     test: /\.(png|woff|woff2|eot|ttf|svg)$/,
     loader: 'url-loader?limit=100000'
   }
-        ];
+];
 
 config.plugins= plugins;
 
