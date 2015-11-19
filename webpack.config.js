@@ -6,47 +6,15 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var nodeModulePath = path.resolve(__dirname, 'node_modules');
 var buildPath = path.resolve(__dirname, 'public');
 
-var source = {
-    login : path.resolve(__dirname, "client_source", "pages", "login.js"),
-    home : path.resolve(__dirname, "client_source", "pages", "home.js"),
-    createmember : path.resolve(__dirname, "client_source", "pages", "createmember.js"),
-};
-
-//create pages
-var plugins = [];
-var keys = Object.keys(source);
-
-keys.map(function(key){
-    plugins.push(
-        new HtmlWebpackPlugin({
-            title : key,
-            appId : websetting.facebook.appId,
-            javascript : "js/" + key + ".js",
-            template : websetting.layout,
-            filename : key + '.html',
-        }));
-});
-
-plugins.push(
-    new webpack.ProvidePlugin({
-        $ : 'jquery',
-        jquery : 'jquery',
-        _ : 'lodash',
-        React: 'react',
-        Promise : 'bluebird',
-        ReactDOM : 'react-dom'
-  })
-);
-
-//uglifyjs
-plugins.push(new webpack.optimize.UglifyJsPlugin());
 
 var config = {
-  devtool: 'eval',
+  devtool: 'eval-source-map',
   src : ['webpack-dev-server/client?http://localhost:8080']
 };
 
-config.entry= source;
+config.entry= [
+    './src/index.js'
+];
 
 config.output= {
     path: path.join(__dirname, "public"),
@@ -74,6 +42,16 @@ config.module.loaders= [
   }
 ];
 
-config.plugins= plugins;
+config.plugins= [
+    new webpack.ProvidePlugin({
+            $ : 'jquery',
+            jquery : 'jquery',
+            _ : 'lodash',
+            React: 'react',
+            Promise : 'bluebird',
+            ReactDOM : 'react-dom'
+    }),
+    new webpack.HotModuleReplacementPlugin()
+];
 
 module.exports = config;

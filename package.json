@@ -9,11 +9,13 @@
     "bootstrap": "^3.3.4",
     "event": "^1.0.0",
     "flux": "^2.1.1",
+    "history": "^1.13.1",
     "jquery": "^2.1.4",
     "lodash": "^3.10.1",
     "moment": "^2.10.6",
     "mongoose": "^4.2.4",
-    "react-datepicker": "^0.15.2"
+    "react-datepicker": "^0.15.2",
+    "react-router": "^1.0.0"
   },
   "devDependencies": {
     "babel-loader": "^5.1.4",
@@ -32,8 +34,8 @@
     "node": "4.0.0"
   },
   "scripts": {
-    "dev": "rm -rf public && webpack -p --config webpack.config.js && webpack-dev-server --content-base public/",
+    "dev": "rm -rf public && webpack -p --config webpack.config.js && webpack-dev-server --content-base .",
     "build": "rm -rf public; webpack -p --config webpack.config.js",
-    "clean" : "rm -rf public"
+    "clean": "rm -rf public"
   }
 }

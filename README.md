@@ -4,7 +4,12 @@ kremember-WebSide
 
 ##Todo
 
-想要做的在這邊
+* 增加react-route
+
+* 修改為SPA
+
+* Detail Page
+
 
 #協同作者
 
