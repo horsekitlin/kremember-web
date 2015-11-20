@@ -1,5 +1,4 @@
-require('../../node_modules/bootstrap/dist/css/bootstrap.min.css');
-require('../scss/main.scss');
+require("bootstrap-webpack");
 import Notifier from '../api';
 
 export default class PageBase extends React.Component {
@@ -7,8 +6,10 @@ export default class PageBase extends React.Component {
         super(props);
     }
     componentWillMount(){
+        Notifier.addListener('ReloadPage', this.reloadpage);
     }
     componentWillUnmount(){
+        Notifier.removeChangeListener(this.reloadpage);
     }
     reloadpage(){
     }

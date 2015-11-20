@@ -1,21 +1,23 @@
+import events from 'events';
 import Users from './Users';
 import Member from './Member';
 
-//取得廣播功能
-var EventEmitter = require('events').EventEmitter;
-
-var Notifier = new EventEmitter();
-
-$.extend(Notifier, {
-    //do something
-    reloadpage : function(){
+class EventEmitter extends events.EventEmitter{
+    constructor(){
+        super();
+    }
+    brocase(name){
+        this.emit(name);
+    }
+    reloadpage(){
         this.emit('ReloadPage');
-    },
-
-    loadingpage : function(){
+    }
+    loadingpage(){
         this.emit('LoadingPage');
     }
-});
+}
+
+var Notifier = new EventEmitter();
 
 export default {
     Notifier : Notifier,

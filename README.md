@@ -1,18 +1,17 @@
 # kremember-web
 
-kremember-WebSide
+## kremember-WebSide
 
-##Todo
-
-* 增加react-route
-
-* 修改為SPA
-
-* Detail Page
-
-
-#協同作者
-
+協同作者
 依據參與順序
 
-Tomas Lin(http://horsekitlin.github.io/)
+Tomas Lin(https://github.com/horsekitlin)
+
+Aaron Chang(https://github.com/jamieabc)
+
+## Skeleiton
+
+### react-kickstart
+
+[github](https://github.com/vesparny/react-kickstart.git)
+

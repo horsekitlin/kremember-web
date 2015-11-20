@@ -1,14 +1,18 @@
-import { Link } from 'react-router';
+import React, {PropTypes} from 'react';
 
-export default class App extends React.Component{
+const App = React.createClass({
+
+  propTypes: typeof __DEV__ && {
+    children: PropTypes.object.isRequired
+  },
+
   render() {
     return (
-        <Link to={`/login/`}>
-        <h4>
-            Login
-            1111
-        </h4>
-        </Link>
+      <div>
+        {this.props.children}
+      </div>
     );
   }
-}
+});
+
+export default App;

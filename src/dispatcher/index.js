@@ -1,31 +1,33 @@
 import constants from '../contants';
 import Flux from 'flux';
 
-var Dispatcher = Flux.Dispatcher;
-var AppDispatcher = new Dispatcher();
-$.extend( AppDispatcher, {
-    handleMemberAction: function(action) {
+class Dispatcher extends Flux.Dispatcher {
+    constructor(){
+        super();
+    }
+    handleUsersAction(action){
         var payload = {
             source: 'Member',
             action: action
         };
         this.dispatch(payload);
-    },
-    handleUsersAction: function(action) {
+    }
+    handleMemberAction(action){
         var payload = {
-            source: 'Users',
+            source: 'Member',
             action: action
         };
         this.dispatch(payload);
-    },
-    handleViewsAction: function(action) {
+    }
+    handleViewsAction(action){
         var payload = {
             source: 'Views',
             action: action
         };
         this.dispatch(payload);
     }
-});
+}
+var AppDispatcher = new Dispatcher();
 
 export default AppDispatcher;
 
