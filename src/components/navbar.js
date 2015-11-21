@@ -1,4 +1,5 @@
 import websetting from '../../config';
+import { Link } from 'react-router';
 
 export default class NavBar extends React.Component {
     constructor(props){
@@ -9,9 +10,11 @@ export default class NavBar extends React.Component {
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
                     <div className="navbar-header">
-                        <a className="navbar-brand" href="#">
+                        <Link
+                            className="navbar-brand"
+                            to="/">
                             Kremember
-                        </a>
+                        </Link>
                         <button
                             className="navbar-toggle"
                             type="button"
@@ -29,11 +32,11 @@ export default class NavBar extends React.Component {
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul className="nav navbar-nav">
                             <li className="active">
-                                <a
-                                    href={websetting.client + "/createmember.html"}>
+                                <Link
+                                    to="/createmember">
                                     新增記事
                                     <span className="sr-only">(current)</span>
-                                </a>
+                                </Link>
                             </li>
                             <li className="dropdown">
                                 <a href="#"

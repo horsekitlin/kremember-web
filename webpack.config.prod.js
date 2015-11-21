@@ -24,6 +24,7 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
         _ : 'lodash',
+        $ : 'jquery',
         React: 'react',
         ReactDOM : 'react-dom'
     }),

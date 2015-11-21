@@ -6,10 +6,10 @@ export default class PageBase extends React.Component {
         super(props);
     }
     componentWillMount(){
-        Notifier.addListener('ReloadPage', this.reloadpage);
+//        Notifier.addListener('ReloadPage', this.reloadpage);
     }
     componentWillUnmount(){
-        Notifier.removeChangeListener(this.reloadpage);
+//        Notifier.removeChangeListener(this.reloadpage);
     }
     reloadpage(){
     }

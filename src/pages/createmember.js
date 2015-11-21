@@ -4,13 +4,12 @@ import { Navbar, Datepicker, Input } from '../components';
 import Stores from '../stores';
 import Actions from '../actions';
 
-class Login extends PageBase {
+export default class CreateMember extends PageBase {
     constructor(props){
         super(props);
         var user = Stores.Users.detail();
         this.handleStartChange = this.handleStartChange.bind(this);
         this.handleEndChange = this.handleEndChange.bind(this);
-        this.getPosts = this.getPosts.bind(this);
 
         this.state = {
             startDate : moment(),
@@ -27,21 +26,6 @@ class Login extends PageBase {
         this.setState({
             endDate : date
         });
-    }
-    getPosts(e){
-        FB.login(() => {
-            FB.api('/me/feed','get',
-                   {
-                        since : this.state.startDate.unix(),
-                        until : this.state.endDate.unix(),
-                        limit:100,
-                        fields : 'message,created_time,full_picture,link,from,icon,name,object_id,picture,updated_time'
-                   }, (resp) => {
-                this.setState({
-                    posts : resp.data
-                });
-            }.bind(this));
-        }.bind(this), {scope:'user_posts'});
     }
     submit(e){
         e.preventDefault();
@@ -124,4 +108,3 @@ class Login extends PageBase {
     }
 }
 
-ReactDOM.render(<Login />, document.getElementById('container'));
