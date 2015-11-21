@@ -1,4 +1,4 @@
-import React from 'react';
+    import React from 'react';
 import App from '../../src/components/App';
 import * as utils from '../utils';
 import TestUtils from 'react-addons-test-utils';
