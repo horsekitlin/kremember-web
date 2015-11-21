@@ -8,6 +8,8 @@ import createHashHistory from 'history/lib/createHashHistory';
 import routes from './routes';
 import attachFastClick from 'fastclick';
 
+window.React = React;
+
 attachFastClick.attach(document.body);
 
 const history = createHashHistory();

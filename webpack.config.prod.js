@@ -25,6 +25,7 @@ module.exports = {
     new webpack.ProvidePlugin({
         _ : 'lodash',
         $ : 'jquery',
+        jQuery : 'jquery',
         React: 'react',
         ReactDOM : 'react-dom'
     }),
@@ -63,9 +64,6 @@ module.exports = {
     }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract('style', 'css')
-    }, {
-      test: /\.styl$/,
-      loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!postcss!stylus')
     }]
   },
   postcss: [

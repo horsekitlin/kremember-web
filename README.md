@@ -15,3 +15,6 @@ Aaron Chang(https://github.com/jamieabc)
 
 [github](https://github.com/vesparny/react-kickstart.git)
 
+### bootstrap-webpack
+
+[github](https://github.com/bline/bootstrap-webpack)
