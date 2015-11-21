@@ -10,14 +10,16 @@ export default{
             name : data.name
         };
         fetch_to('/users/login/v1/', query)
-        .done((res) => {
-            if(res.status !== 200){
+        .then((json) => {
+            if(json.status !== 200){
                 alert('登入失敗');
             }else{
-                data.token = res.data.token;
+                data.token = json.data.token;
                 Users.update('item', data);
-                redirect('/home.html');
+                redirect('/posts');
             }
+        }).catch((err) => {
+            alert(err);
         });
     }
 };

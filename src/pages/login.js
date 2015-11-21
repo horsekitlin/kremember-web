@@ -3,27 +3,34 @@ import websetting from '../../config';
 import Stores from '../stores';
 import Actions from '../actions';
 import FacebookLogin from '../components/facebook';
+import { redirect } from '../utils/group';
 
 export default class Login extends PageBase {
     constructor(props){
         super(props);
     }
     componentDidMount(){
-        console.log(1);
+        const user = Stores.Users.detail();
+        if(!_.isUndefined(user.token)){
+            redirect('/posts');
+        }
     }
     resultFacebookLogin(resp){
-        console(resp);
+        Actions.Users.Login(resp);
     }
     render(){
-                console.log(websetting.facebook.appId);
         return (
             <div className='row'>
                 <div className="col-xs-12 col-md-12 col-lg-12">
-                hello
+                    <a href="#" className="thumbnail">
+                        <img src={require('../images/logo.png')} alt="Logo" />
+                    </a>
+                </div>
+                <div className="col-xs-12 col-md-12 col-lg-12 text-center">
                     <FacebookLogin
-                        appId = "519826671522565"
+                        appId = { websetting.facebook.appId }
                         class = "facebook-login"
-                        scope = "public_profile, email, user_birthday"
+                        scope = { websetting.facebook.scope }
                         loginHandler = { this.resultFacebookLogin } />
                 </div>
             </div>

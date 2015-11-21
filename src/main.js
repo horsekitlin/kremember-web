@@ -12,7 +12,9 @@ window.React = React;
 
 attachFastClick.attach(document.body);
 
-const history = createHashHistory();
+const history = createHashHistory({
+    queryKey: false
+});
 
 ReactDOM.render(
   <Router
