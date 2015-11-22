@@ -1,5 +1,6 @@
 import PageBase from '../utils/PageBase';
 import moment from 'moment';
+import FBManager from '../utils/FBBase';
 import { Navbar, Datepicker, Input } from '../components';
 import Stores from '../stores';
 import Actions from '../actions';
@@ -10,12 +11,16 @@ export default class CreateMember extends PageBase {
         var user = Stores.Users.detail();
         this.handleStartChange = this.handleStartChange.bind(this);
         this.handleEndChange = this.handleEndChange.bind(this);
+        this.getPosts = this.getPosts.bind(this);
 
         this.state = {
             startDate : moment(),
             endDate : moment(),
             posts : []
         };
+    }
+    componentDidMount(){
+        FBManager.init();
     }
     handleStartChange(date){
         this.setState({
@@ -38,6 +43,22 @@ export default class CreateMember extends PageBase {
             posts : posts
         }
         Actions.Member.Create(data);
+    }
+    getPosts(){
+        FB.login(() => {
+            FB.api('/me/feed','get',
+                   {
+                        since : this.state.startDate.unix(),
+                        until : this.state.endDate.unix(),
+                        limit:100,
+                        fields : 'message,created_time,full_picture,link,from,icon,name,object_id,picture,updated_time'
+                   }, (resp) => {
+                       console.log(resp);
+                this.setState({
+                    posts : resp.data
+                });
+            }.bind(this));
+        }.bind(this), {scope:'user_posts'});
     }
     render(){
         return (
