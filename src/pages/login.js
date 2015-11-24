@@ -8,15 +8,14 @@ import { redirect } from '../utils/group';
 export default class Login extends PageBase {
     constructor(props){
         super(props);
+        this.login = this.login.bind(this);
     }
-    componentDidMount(){
-        const user = Stores.Users.detail();
-        if(!_.isUndefined(user.token)){
-            redirect('/posts');
-        }
-    }
-    resultFacebookLogin(resp){
-        Actions.Users.Login(resp);
+    login(e){
+        Actions.Users.Login({
+            account : this.refs.account.value,
+            pwd : this.refs.pwd.value
+        });
+        e.preventDefault();
     }
     render(){
         return (
@@ -27,11 +26,28 @@ export default class Login extends PageBase {
                     </a>
                 </div>
                 <div className="col-xs-12 col-md-12 col-lg-12 text-center">
-                    <FacebookLogin
-                        appId = { websetting.facebook.appId }
-                        class = "facebook-login"
-                        scope = { websetting.facebook.scope }
-                        loginHandler = { this.resultFacebookLogin } />
+                    <form onSubmit={this.login} method='POST'>
+                        <legend>Login</legend>
+                        <fieldset>
+                            <div className="col-xs-12 col-md-12 col-lg-12 center-block">
+                                <div className="col-xs-12 col-md-8 col-lg-4 col-lg-offset-4">
+                                    <div className="form-group">
+                                        <label >帳號</label>
+                                        <input className='form-control' ref='account' id='account' name='account' required={true}/>
+                                    </div>
+                                </div>
+                                <div className="col-xs-12 col-md-8 col-lg-4 col-lg-offset-4">
+                                    <div className="form-group">
+                                        <label >密碼</label>
+                                        <input className='form-control' type='password' ref='pwd' required={true} id='pwd' name='pwd'/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-xs-12 col-md-12 col-lg-12">
+                                <input className='btn btn-primary btn-sm' type="submit" value='登入'/>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
             </div>
         );

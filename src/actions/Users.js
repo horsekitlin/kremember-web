@@ -4,7 +4,7 @@ import Constants from '../contants';
 export default {
     Login : (data) => {
         Dispatcher.handleUsersAction({
-            actionType : Constants.Users.FBLOGIN,
+            actionType : Constants.Users.LOGIN,
             data : data
         });
     }

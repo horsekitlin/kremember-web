@@ -53,7 +53,6 @@ export default class CreateMember extends PageBase {
                         limit:100,
                         fields : 'message,created_time,full_picture,link,from,icon,name,object_id,picture,updated_time'
                    }, (resp) => {
-                       console.log(resp);
                 this.setState({
                     posts : resp.data
                 });
@@ -63,6 +62,9 @@ export default class CreateMember extends PageBase {
     render(){
         return (
             <div className='row'>
+            <div className="wrapper loading">
+                <Loading type='balls' color='#e3e3e3'/>
+            </div>
                 <div className="col-xs-12 col-md-12 col-lg-12">
                     <Navbar />
                 </div>

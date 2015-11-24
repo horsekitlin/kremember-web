@@ -1,7 +1,7 @@
 import keyMirror from 'keymirror'
 
 const Constants = {
-    FBLOGIN : 'FB登入',
+    LOGIN : 'Admin 登入',
 };
 
 export default keyMirror(Constants);

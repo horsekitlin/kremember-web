@@ -7,6 +7,7 @@ export default class InputComponent extends React.Component {
             <div className="form-group">
                 <label >{this.props.label}</label>
                 <input className='form-control' {...this.props}/>
+                <span className="help-block">{this.props.help}</span>
             </div>
         );
     }

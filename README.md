@@ -1,13 +1,6 @@
-# kremember-web
+# Tutor-admin page
 
-## kremember-WebSide
-
-協同作者
-依據參與順序
-
-Tomas Lin(https://github.com/horsekitlin)
-
-Aaron Chang(https://github.com/jamieabc)
+## 家教-WebSide
 
 ## Skeleiton
 

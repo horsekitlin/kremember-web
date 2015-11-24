@@ -6,7 +6,7 @@ import { Notifier } from '../stores';
 
 Notifier.dispatchToken = Dispatcher.register((evt) => {
     switch(evt.action.actionType){
-        case Constants.Users.FBLOGIN:
+        case Constants.Users.LOGIN:
             Users.Login(evt.action.data);
             break;
         case Constants.Member.CREATED:

@@ -5,18 +5,13 @@ import { Notifier, Users } from '../stores';
 
 export default{
     Login : (data) => {
-        var query = {
-            fb_id : data.id,
-            name : data.name
-        };
-        fetch_to('/users/login/v1/', query)
+        fetch_to('/admin/login/v1/', data)
         .then((json) => {
             if(json.status !== 200){
                 alert('登入失敗');
             }else{
-                data.token = json.data.token;
-                Users.update('item', data);
-                redirect('/posts');
+                Users.update('item', json.data);
+                console.log(json.data);
             }
         }).catch((err) => {
             alert(err);

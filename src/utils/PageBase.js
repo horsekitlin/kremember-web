@@ -11,6 +11,4 @@ export default class PageBase extends React.Component {
     componentWillUnmount(){
 //        Notifier.removeChangeListener(this.reloadpage);
     }
-    reloadpage(){
-    }
 }
