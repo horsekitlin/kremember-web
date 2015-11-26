@@ -3,7 +3,7 @@ import { Route } from 'react-router';
 
 import DefaultLayout from './components/Layout';
 import { CreateAdvert, Login, Home, Notification
-    , Advert, SysPost } from './pages';
+    , Advert, SysPost, CreateSysPost } from './pages';
 
 const routes = (
   <Route component={App}>
@@ -14,6 +14,7 @@ const routes = (
         <Route path='/advert' component={Advert}/>
         <Route path='/syspost' component={SysPost}/>
         <Route path='/createadvert' component={CreateAdvert}/>
+        <Route path='/createsyspost' component={CreateSysPost}/>
     </Route>
   </Route>
 );

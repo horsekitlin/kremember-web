@@ -3,6 +3,7 @@ import Home from './home';
 import Notification from './notification';
 import Advert from './advert';
 import CreateAdvert from './createadvert';
+import CreateSysPost from './createsyspost';
 import SysPost from './syspost';
 
 export default {
@@ -12,4 +13,5 @@ export default {
     Advert : Advert,
     CreateAdvert : CreateAdvert,
     SysPost : SysPost,
+    CreateSysPost : CreateSysPost,
 };
