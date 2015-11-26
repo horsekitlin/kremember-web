@@ -30,39 +30,6 @@ export default class NavBar extends React.Component {
                         </button>
                     </div>
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul className="nav navbar-nav">
-                            <li className="active">
-                                <Link
-                                    to="/createmember">
-                                    新增記事
-                                    <span className="sr-only">(current)</span>
-                                </Link>
-                            </li>
-                            <li className="dropdown">
-                                <a href="#"
-                                    className="dropdown-toggle"
-                                    data-toggle="dropdown"
-                                    role="button"
-                                    aria-haspopup="true"
-                                    aria-expanded="false">
-                                    列表
-                                    <span className="caret"></span>
-                                </a>
-                                <ul className="dropdown-menu">
-                                    <li><a href="/public/home.html">文章</a></li>
-                                    <li role="separator" className="divider"></li>
-                                    <li>
-                                        <a href="#">照片</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <form className="navbar-form navbar-left" role="search">
-                            <div className="form-group">
-                            <input type="text" className="form-control" placeholder="Search" />
-                            </div>
-                            <button type="submit" className="btn btn-default">Submit</button>
-                        </form>
                         <ul className="nav navbar-nav navbar-right">
                             <li className="dropdown">
                                 <a href="#"

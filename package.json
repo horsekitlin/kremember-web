@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "bootstrap-webpack": "0.0.5",
+    "classnames": "^2.2.1",
     "es6-promise": "^3.0.2",
     "exports-loader": "^0.6.2",
     "halogen": "^0.1.10",
