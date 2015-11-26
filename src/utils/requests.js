@@ -19,10 +19,10 @@ export default {
         return new Promise((resolve, reject) => {
             fetch(url , { method: 'POST', headers : headers, body: JSON.stringify(data) })
             .then(function(res) {
+                console.log(res);
                 return res.json();
             }).then(function(json) {
                 resolve(json);
-                console.log(json);
             }).catch((err) => {
                 reject(err);
             });

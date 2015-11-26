@@ -8,13 +8,12 @@ export default{
         fetch_to('/admin/login/v1/', data)
         .then((json) => {
             if(json.status !== 200){
-                alert('登入失敗');
+                alert(json.message);
             }else{
                 Users.update('item', json.data);
-                redirect('');
+                redirect('/home');
             }
         }).catch((err) => {
-
             alert(err);
         });
     }

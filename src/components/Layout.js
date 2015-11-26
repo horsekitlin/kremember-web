@@ -10,7 +10,10 @@ class DefaultLayout extends React.Component{
             <div id="wrapper">
                 <div className="row">
                     <Navbar />
-                    <div className="page-wrapper">
+                    <div style={{ height:"100vh"}} className="col-lg-2">
+                        <Sidebar />
+                    </div>
+                    <div className="col-lg-10">
                         {this.props.children}
                     </div>
                 </div>

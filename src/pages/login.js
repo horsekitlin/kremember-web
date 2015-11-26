@@ -14,8 +14,8 @@ export default class Login extends PageBase {
     }
     login(e){
         Actions.Users.Login({
-            account : this.refs.account.value,
-            pwd : this.refs.pwd.value
+            identity : this.refs.account.value,
+            tel : this.refs.pwd.value
         });
         e.preventDefault();
     }
