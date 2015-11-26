@@ -11,9 +11,10 @@ export default{
                 alert('登入失敗');
             }else{
                 Users.update('item', json.data);
-                console.log(json.data);
+                redirect('');
             }
         }).catch((err) => {
+
             alert(err);
         });
     }

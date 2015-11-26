@@ -8,11 +8,11 @@ describe('Components', () => {
     const component = utils.shallowlyRenderedOutput(<App />);
 
     it('should have a div as container', () => {
-      expect(component.type).to.equal('div');
+        expect(component.type).to.equal('div');
     });
 
     it('should contain children', () => {
-      expect(typeof TestUtils.isElementOfType(component.props.children) !== 'undefined').to.be.true;
+        expect(typeof TestUtils.isElementOfType(component.props.children) !== 'undefined').to.be.true;
     });
   });
 });

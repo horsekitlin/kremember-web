@@ -1,15 +1,15 @@
 import App from './components/App';
 import { Route } from 'react-router';
 
-import { Posts, Createmember, Login, Post } from './pages';
+import DefaultLayout from './components/Layout';
+import { Login, Home } from './pages';
 
 const routes = (
   <Route component={App}>
     <Route path='/' component={Login} />
-    <Route path='/createmember' component={Createmember} />
-    <Route path='/posts' component={Posts}>
+    <Route component={DefaultLayout}>
+        <Route path='/home' component={Home} />
     </Route>
-    <Route path='/post/:p_id' component = {Post} />
      // put other routes here
   </Route>
 );

@@ -1,4 +1,3 @@
-require('../../node_modules/metismenu/dist/metisMenu.min.css');
 import websetting from '../../config';
 import { Link } from 'react-router';
 

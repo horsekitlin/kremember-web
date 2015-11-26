@@ -15,6 +15,3 @@ global.__DEV__ = true;
 require.extensions['.css'] = function() {
   return null;
 };
-require.extensions['.styl'] = function() {
-  return null;
-};
