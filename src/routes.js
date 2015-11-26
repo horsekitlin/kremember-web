@@ -2,7 +2,8 @@ import App from './components/App';
 import { Route } from 'react-router';
 
 import DefaultLayout from './components/Layout';
-import { Login, Home, Notification } from './pages';
+import { CreateAdvert, Login, Home, Notification
+    , Advert, SysPost } from './pages';
 
 const routes = (
   <Route component={App}>
@@ -10,6 +11,9 @@ const routes = (
     <Route component={DefaultLayout}>
         <Route path='/home' component={Home} />
         <Route path='/notification' component={Notification}/>
+        <Route path='/advert' component={Advert}/>
+        <Route path='/syspost' component={SysPost}/>
+        <Route path='/createadvert' component={CreateAdvert}/>
     </Route>
   </Route>
 );
