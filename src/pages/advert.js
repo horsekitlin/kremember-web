@@ -20,13 +20,13 @@ export default class Advert extends React.Component{
                     <div className="col-xs-12 col-md-12 col-lg-12 form-group">
                         <Table hover striped bordered condensed center>
                             <thead>
-                                <th>
-                                    <td>#</td>
-                                    <td>日期</td>
-                                    <td>圖片</td>
-                                    <td>網址</td>
-                                    <td>刪除</td>
-                                </th>
+                                <tr>
+                                    <th>#</th>
+                                    <th>日期</th>
+                                    <th>圖片</th>
+                                    <th>網址</th>
+                                    <th>刪除</th>
+                                </tr>
                             </thead>
                             <tbody>
                                 <tr>
