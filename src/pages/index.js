@@ -5,6 +5,7 @@ import Advert from './advert';
 import CreateAdvert from './createadvert';
 import CreateSysPost from './createsyspost';
 import SysPost from './syspost';
+import Service from './service';
 
 export default {
     Login : Login,
@@ -14,4 +15,5 @@ export default {
     CreateAdvert : CreateAdvert,
     SysPost : SysPost,
     CreateSysPost : CreateSysPost,
+    Service : Service,
 };

@@ -34,7 +34,7 @@ const SidebarContent = (props) => {
                 <a key='notification' href={`${client}/#/notification`} style={styles.sidebarLink}>推播功能</a>
                 <a key='advert' href={`${client}/#/advert`} style={styles.sidebarLink}>上傳廣告</a>
                 <a key='syspost' href={`${client}/#/syspost`} style={styles.sidebarLink}>公告</a>
-                <a key='feedback' href="#" style={styles.sidebarLink}>客服</a>
+                <a key='feedback' href={`${client}/#/service`} style={styles.sidebarLink}>客服</a>
             </div>
         </MaterialTitlePanel>
     );
