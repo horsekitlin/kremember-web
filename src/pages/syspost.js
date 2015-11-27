@@ -1,11 +1,43 @@
 import websetting from '../../config';
 import Table from '../components/Table';
+import moment from 'moment';
 
 export default class Advert extends React.Component{
     constructor(props){
         super(props);
+        this._delete = this._delete.bind(this);
+        this.state = {
+            posts : [{
+                created_time : 1448990000000.000,
+                type : '活動快報',
+                title : '最新活動在綠園道'
+            },{
+                created_time : 1447990000000.000,
+                type : '活動快報',
+                title : '下週最新活動報告'
+            }]
+        };
+    }
+    _delete(e){
+        if(confirm('是否要刪除?')){
+            let posts = this.state.posts;
+            const index = parseInt(e.target.id.split('-')[1]);
+            if(posts.length > 1){
+                _.remove(posts, (post, i) => {
+                    return index === i;
+                });
+            }else{
+                posts = [];
+            }
+            console.log(posts);
+            this.setState({
+                posts : posts
+            });
+        }
     }
     render(){
+        const posts = this.state.posts;
+
         return (
             <div>
                 <div className="well well-sm">
@@ -30,18 +62,25 @@ export default class Advert extends React.Component{
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2015-11-11</td>
-                                    <td>活動快報</td>
-                                    <td>最新的活動在綠園道</td>
-                                    <td>
-                                        <button className="btn btn-sm btn-info">查看</button>
-                                    </td>
-                                    <td>
-                                        <button className="btn btn-sm btn-danger">刪除</button>
-                                    </td>
-                                </tr>
+                                {posts.map((post, index) => {
+                                    return(
+                                        <tr key={`post-${index}`}>
+                                            <td>{index + 1}</td>
+                                            <td>{moment(post.created_time).format('YYYY-MM-DD')}</td>
+                                            <td>{post.type}</td>
+                                            <td>{post.title}</td>
+                                            <td>
+                                                <button className="btn btn-sm btn-info">查看</button>
+                                            </td>
+                                            <td>
+                                                <button
+                                                    id={`kill-${index}`}
+                                                    onClick={this._delete}
+                                                    className="btn btn-sm btn-danger">刪除</button>
+                                            </td>
+                                        </tr>
+                                    );
+                                }.bind(this))}
                             </tbody>
                         </Table>
                     </div>
