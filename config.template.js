@@ -1,4 +1,5 @@
 export default {
     server : '',
-    client : ''
+    client : '',
+    PORT: 7500,
 };

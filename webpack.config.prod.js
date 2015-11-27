@@ -64,6 +64,9 @@ module.exports = {
     }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract('style', 'css')
+    },{
+        test: /\.(png|jpg|jpeg|svg)$/,
+        loader: 'url-loader?limit=100000'
     }]
   },
   postcss: [
