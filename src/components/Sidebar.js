@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import Sidebar from 'react-sidebar';
 import SidebarContent from './SidebarContent';
+import MaterialTitlePanel from './material_title_panel';
 
 const styles = {
   contentHeaderMenuLink: {
@@ -59,7 +60,12 @@ export default class SideBar extends React.Component {
         };
 
         return (
-            <Sidebar {...sidebarProps} />
+            <Sidebar {...sidebarProps}>
+                <MaterialTitlePanel title={contentHeader}>
+                    <div style={styles.content}>
+                    </div>
+                </MaterialTitlePanel>
+            </Sidebar>
         );
     }
 }
