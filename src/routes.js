@@ -1,11 +1,11 @@
 import App from './components/App';
 import { Route } from 'react-router';
 
-import { Hello } from './pages';
+import { Facebook } from './pages';
 
 const routes = (
-    <Route component={App}>
-        <Route path='/' component={Hello}>
+    <Route path='/' component={App}>
+        <Route path='/facebook' component={Facebook}>
         </Route>
     </Route>
 );

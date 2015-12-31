@@ -1,4 +1,3 @@
-require("bootstrap-webpack");
 import ReactDOM from 'react-dom';
 import Router from 'react-router';
 // import createBrowserHistory from 'history/lib/createBrowserHistory';

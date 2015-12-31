@@ -1,5 +1,5 @@
-import Hello from './hello';
+import Facebook from './Facebook';
 
 export default {
-    Hello : Hello
+    Facebook : Facebook,
 };
