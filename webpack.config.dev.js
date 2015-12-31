@@ -1,5 +1,4 @@
 'use strict';
-
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -29,7 +28,9 @@ module.exports = {
             ReactDOM : 'react-dom'
         }),
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
+        new webpack.HotModuleReplacementPlugin({
+            hot : true
+        }),
         new webpack.NoErrorsPlugin(),
         new ExtractTextPlugin("bootstrap-and-customizations.css"),
         new webpack.DefinePlugin({
@@ -60,7 +61,7 @@ module.exports = {
             test: /\.css$/,
             loader: 'style!css'
             },{
-                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+                test: /\.(png|jpg|jpeg)$/,
                 loader: 'url-loader?limit=100000'
             }
         ]

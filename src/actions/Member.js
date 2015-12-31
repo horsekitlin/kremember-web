@@ -8,6 +8,12 @@ export default {
             data : data
         });
     },
+    GetDetail : (data) => {
+        Dispatcher.handleMemberAction({
+            actionType : Constants.Member.DETAIL,
+            data : data
+        });
+    },
     List : () => {
         Dispatcher.handleMemberAction({
             actionType : Constants.Member.LIST,

@@ -1,9 +1,5 @@
-import Home from './home';
-import Createmember from './createmember';
-import Login from './login';
+import Hello from './hello';
 
 export default {
-    Home : Home,
-    Createmember : Createmember,
-    Login : Login,
+    Hello : Hello
 };

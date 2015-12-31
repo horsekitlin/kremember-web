@@ -1,28 +1,4 @@
 export default {
-  // Use preBootstrapCustomizations to change $brand-primary. Ensure this preBootstrapCustomizations does not
-  // depend on other bootstrap variables.
-  preBootstrapCustomizations: "./_pre-bootstrap-customizations.scss",
-
-  // Use bootstrapCustomizations to utilize other sass variables defined in preBootstrapCustomizations or the
-  // _variables.scss file. This is useful to set one customization value based on another value.
-  bootstrapCustomizations: "./_bootstrap-customizations.scss",
-
-  mainSass: "./_main.scss",
-  verbose: true,
-  debug: false,
-  // Default for the style loading is to put in your js files
-  // styleLoader: "style-loader!css-loader!sass-loader";
-
-  // If you want to use the ExtractTextPlugin
-  //   and you want compressed
-  //     styleLoader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader"),
-  //   or if you want expanded CSS
-  //     styleLoader: ExtractTextPlugin.extract("style-loader", "css-loader!sass?outputStyle=expanded"),
-
-  // ### Scripts
-  // Any scripts here set to false will never
-  // make it to the client, it's not packaged
-  // by webpack.
   scripts: {
     'transition': true,
     'alert': true,

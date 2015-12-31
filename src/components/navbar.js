@@ -1,5 +1,8 @@
 import websetting from '../../config';
 import { Link } from 'react-router';
+import FaBell from 'react-icons/lib/fa/bell'
+import Wechat from 'react-icons/lib/fa/wechat';
+import Badge from './Badge';
 
 export default class NavBar extends React.Component {
     constructor(props){
@@ -7,13 +10,13 @@ export default class NavBar extends React.Component {
     }
     render(){
         return (
-            <nav className="navbar navbar-default">
+            <nav className="navbar navbar-inverse">
                 <div className="container-fluid">
                     <div className="navbar-header">
                         <Link
                             className="navbar-brand"
                             to="/">
-                            Kremember
+                            PostsViewer
                         </Link>
                         <button
                             className="navbar-toggle"
@@ -30,38 +33,13 @@ export default class NavBar extends React.Component {
                         </button>
                     </div>
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul className="nav navbar-nav">
-                            <li className="active">
-                                <Link
-                                    to="/createmember">
-                                    新增記事
-                                    <span className="sr-only">(current)</span>
-                                </Link>
-                            </li>
-                            <li className="dropdown">
-                                <a href="#"
-                                    className="dropdown-toggle"
-                                    data-toggle="dropdown"
-                                    role="button"
-                                    aria-haspopup="true"
-                                    aria-expanded="false">
-                                    列表
-                                    <span className="caret"></span>
-                                </a>
-                                <ul className="dropdown-menu">
-                                    <li><a href="/public/home.html">文章</a></li>
-                                    <li role="separator" className="divider"></li>
-                                    <li>
-                                        <a href="#">照片</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
                         <form className="navbar-form navbar-left" role="search">
-                            <div className="form-group">
-                            <input type="text" className="form-control" placeholder="Search" />
+                            <div className="input-group input-group-sm">
+                                <input type="text" className="form-control" placeholder="Enter Any Word to search" aria-describedby="sizing-addon3" />
+                                <span className="input-group-addon" id="sizing-addon3">
+                                    <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
                             </div>
-                            <button type="submit" className="btn btn-default">Submit</button>
                         </form>
                         <ul className="nav navbar-nav navbar-right">
                             <li className="dropdown">
@@ -71,8 +49,46 @@ export default class NavBar extends React.Component {
                                     role="button"
                                     aria-haspopup="true"
                                     aria-expanded="false">
-                                    About User
-                                    <span className="caret"></span>
+                                    <span className='glyphicon glyphicon-user'></span>
+                                    <Badge count={3} />
+                                </a>
+                                <ul className="dropdown-menu">
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="#">Setting</a></li>
+                                    <li role="separator" className="divider"></li>
+                                    <li>
+                                        <a href="#">登出</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li className="dropdown">
+                                <a href="#"
+                                    className="dropdown-toggle"
+                                    data-toggle="dropdown"
+                                    role="button"
+                                    aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <Wechat />
+                                    <Badge count={5} />
+                                </a>
+                                <ul className="dropdown-menu">
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="#">Setting</a></li>
+                                    <li role="separator" className="divider"></li>
+                                    <li>
+                                        <a href="#">登出</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li className="dropdown">
+                                <a href="#"
+                                    className="dropdown-toggle"
+                                    data-toggle="dropdown"
+                                    role="button"
+                                    aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <FaBell />
+                                    <Badge count={2} />
                                 </a>
                                 <ul className="dropdown-menu">
                                     <li><a href="#">Profile</a></li>
