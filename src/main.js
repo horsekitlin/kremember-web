@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom';
 import Router from 'react-router';
+import 'react-widgets/lib/less/react-widgets.less';
 // import createBrowserHistory from 'history/lib/createBrowserHistory';
 import createHashHistory from 'history/lib/createHashHistory';
 import routes from './routes';

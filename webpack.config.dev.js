@@ -42,6 +42,8 @@ module.exports = {
         loaders: [
             { test: /bootstrap\/js\//, loader: 'imports?jQuery=jquery' },
             { test: /\.scss$/, loader: "style!css!sass?outputStyle=expanded" },
+            { test: /\.less$/, loader: "style-loader!css-loader!less-loader" },
+            { test: /\.gif$/, loader: "url-loader?mimetype=image/png" },
             { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,   loader: "url?limit=10000&minetype=application/font-woff" },
             { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,  loader: "url?limit=10000&minetype=application/font-woff" },
             { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&minetype=application/octet-stream" },
