@@ -7,5 +7,11 @@ export default {
             actionType : Constants.POSTS_GET_LIST,
             data : data
         });
+    },
+    Nextpage(data){
+        Dispatcher.handlePostsAction({
+            actionType : Constants.POSTS_NEXT_PAGE,
+            data : data
+        });
     }
 };

@@ -11,7 +11,7 @@ export default class NavBar extends React.Component {
         super(props);
         let query = Store_Posts.get('query');
         this.updatemsg = this.updatemsg.bind(this);
-        this.searchpost = this.searchpost.bind(this);
+        this.searchposts = this.searchposts.bind(this);
         this.state = {
             query : query
         };
@@ -21,8 +21,11 @@ export default class NavBar extends React.Component {
         query.message = e.target.value;
         this.setState({query : query});
     }
-    searchpost(e){
-        Act_Posts.List(this.state.query);
+    searchposts(e){
+        let query = this.state.query;
+        query.skip = 0;
+        query.limit = 20;
+        Act_Posts.List(query);
     }
     render(){
         return (
@@ -59,7 +62,7 @@ export default class NavBar extends React.Component {
                                     placeholder="Enter Any Word to search"
                                     aria-describedby="sizing-addon3" />
                                 <span
-                                    onClick={this.searchpost}
+                                    onClick={this.searchposts}
                                     className="btn btn-defaultbtn-sm input-group-addon"
                                     id="sizing-addon3">
                                     <span className="glyphicon glyphicon-search" aria-hidden="true"></span>

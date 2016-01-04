@@ -20,13 +20,15 @@ export default class Facebook extends PageBase {
             method : this._reloadCompent
         }];
         this.state = {
-            query : {
-                skip : 0,
-                limit : 20
-            },
+            query : Store_Posts.get('query'),
             posts : []
         };
         Act_Posts.List(this.state.query);
+    }
+    loadpage(){
+        let query = Store_Posts.get('query');
+        query.skip += query.limit;
+        Act_Posts.Nextpage(query);
     }
     _reloadCompent (){
         this.setState({
