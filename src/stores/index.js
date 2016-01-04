@@ -1,6 +1,6 @@
 import events from 'events';
-import Users from './Users';
-import Member from './Member';
+import Fans from './Fans';
+import Posts from './Posts';
 
 class EventEmitter extends events.EventEmitter{
     constructor(){
@@ -21,6 +21,6 @@ var Notifier = new EventEmitter();
 
 export default {
     Notifier : Notifier,
-    Users : Users,
-    Member : Member
+    Store_Fans : Fans,
+    Store_Posts : Posts,
 };

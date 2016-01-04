@@ -2,13 +2,19 @@ require("bootstrap-webpack");
 import Notifier from '../api';
 
 export default class PageBase extends React.Component {
-    constructor(props){
+    constructor(props, evts=[]){
         super(props);
     }
     componentWillMount(){
-//        Notifier.addListener('ReloadPage', this.reloadpage);
+        const _evts = this._evts || [];
+        _evts.map((evt, key) => {
+            Notifier.addListener(evt.name, evt.method);
+        });
     }
     componentWillUnmount(){
-//        Notifier.removeChangeListener(this.reloadpage);
+        const _evts = this._evts || [];
+        _evts.map((evt) => {
+            Notifier.removeChangeListener(evt.name, evt.method);
+        });
     }
 }

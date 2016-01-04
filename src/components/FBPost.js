@@ -5,11 +5,11 @@ import Shared from 'react-icons/lib/fa/mail-forward';
 const styles = {
     block : {
         padding : "25px",
-        "margin-top" : "15px",
+        marginTop : "15px",
         border : "1px solid #CCC"
     },
     helpwords : {
-        "margin-left" : '5px'
+        marginLeft : '5px'
     }
 };
 export default class FBPost extends React.Component {

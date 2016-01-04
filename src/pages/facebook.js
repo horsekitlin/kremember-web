@@ -1,6 +1,7 @@
 import PageBase from '../utils/PageBase';
 import FBPost from '../components/FBPost';
-import { Multiselect } from 'react-widgets';
+import FansList from '../components/Fans_list';
+import { Act_Posts } from '../actions';
 
 const styles = {
     block : {
@@ -12,16 +13,14 @@ const styles = {
 export default class Facebook extends PageBase {
     constructor(props){
         super(props);
-        this.state = {
-            open : false
-        };
+    }
+    componentWillMount(){
+        Act_Posts.List({skip:0, limit : 10});
     }
     chgposttype(e){
         e.preventDefault();
     }
     render(){
-        const open = this.state.open,
-            toggle = () => this.setState({open : !open});
 
         return (
             <div className="row">
@@ -42,22 +41,7 @@ export default class Facebook extends PageBase {
                     </div>
                 </div>
                 <div className="col-lg-4 col-md-4 col-xs-4">
-                    <div className="row" style={styles.block}>
-                        <div className="col-lg-12 col-md-12 col-sm-12">
-                            <h4>請選擇您欲觀看的粉絲團</h4>
-                            <button className="btn btn-sm btn-primary"
-                                onClick={toggle}>
-                                {open ? 'close' : 'open'}
-                            </button>
-                            <hr/>
-                            <Multiselect
-                                valueField='id'
-                                textField='name'
-                                open={open}
-                                data={[{id:1, name:"羅小白"}, {id:2, name:"拐拐"}]}
-                                onTggle={() => {}} />
-                        </div>
-                    </div>
+                    <FansList />
                 </div>
             </div>
         );

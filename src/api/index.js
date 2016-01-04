@@ -1,22 +1,15 @@
 import Dispatcher from '../dispatcher';
-import Constants from '../contants';
-import Users from './Users';
-import Member from './Member';
+import Constants from '../constants';
+import Fans from './Fans';
 import { Notifier } from '../stores';
 
 Notifier.dispatchToken = Dispatcher.register((evt) => {
     switch(evt.action.actionType){
-        case Constants.Member.GETDETAIL:
-            Member.getDetail(evt.action.data);
+        case Constants.POSTS_GET_LIST:
+            console.log('post');
             break;
-        case Constants.Users.FBLOGIN:
-            Users.Login(evt.action.data);
-            break;
-        case Constants.Member.CREATED:
-            Member.Create(evt.action.data);
-            break;
-        case Constants.Member.LIST:
-            Member.List();
+        case Constants.FANS_GET_LIST:
+            Fans.List(evt.action.data);
             break;
         default:
             console.log("Home");

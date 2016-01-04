@@ -1,7 +1,7 @@
-import Users from './Users';
-import Member from './Member';
+import Posts from './Posts';
+import Fans from './Fans';
 
 export default {
-    Users : Users,
-    Member : Member
+    Act_Posts : Posts,
+    Act_Fans : Fans,
 };
