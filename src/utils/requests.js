@@ -15,7 +15,6 @@ export default {
     }) => {
         const url = config.server + route;
         const myHeaders = new Headers(headers);
-        var querystring = $.param(data);
         return new Promise((resolve, reject) => {
             fetch(url, {
                 method : 'POST',

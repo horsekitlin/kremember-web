@@ -52,6 +52,9 @@ export default class StoreBase extends Object{
     findOne(query={}){
         return _.find(this._data.list, query);
     }
+    get(key){
+        return this._data[key];
+    }
     detail(){
         return this._data.item;
     }

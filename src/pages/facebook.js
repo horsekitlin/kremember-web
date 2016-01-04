@@ -1,6 +1,7 @@
 import PageBase from '../utils/PageBase';
 import FBPost from '../components/FBPost';
 import FansList from '../components/Fans_list';
+import { Store_Posts } from '../stores';
 import { Act_Posts } from '../actions';
 
 const styles = {
@@ -13,15 +14,27 @@ const styles = {
 export default class Facebook extends PageBase {
     constructor(props){
         super(props);
+        this._reloadCompent = this._reloadCompent.bind(this);
+        this._evts= [{
+            name : 'postschange',
+            method : this._reloadCompent
+        }];
+        this.state = {
+            query : {
+                skip : 0,
+                limit : 20
+            },
+            posts : []
+        };
+        Act_Posts.List(this.state.query);
     }
-    componentWillMount(){
-        Act_Posts.List({skip:0, limit : 10});
-    }
-    chgposttype(e){
-        e.preventDefault();
+    _reloadCompent (){
+        this.setState({
+            query : Store_Posts.get('query'),
+            posts : Store_Posts.listAll()
+        });
     }
     render(){
-
         return (
             <div className="row">
                 <div className="col-lg-8 col-md-8 col-xs-8">
@@ -35,9 +48,17 @@ export default class Facebook extends PageBase {
                             <div className="pull-right"><button className='btn btn-primary btn-sm'>發布</button></div>
                         </div>
                         <hr />
-                        <FBPost />
-
-                        <FBPost />
+                        {this.state.posts.map((post) => {
+                            return <FBPost post={post}/>;
+                        })}
+                        <hr />
+                        <div className="col-lg-12 col-md-12 col-xs-12">
+                            <div className="help-block text-center">
+                                <label
+                                    onClick={this.loadpage}
+                                    className='btn btn-sm btn-default'>下一頁</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="col-lg-4 col-md-4 col-xs-4">

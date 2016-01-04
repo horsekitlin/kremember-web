@@ -1,12 +1,28 @@
 import websetting from '../../config';
-import { Link } from 'react-router';
 import FaBell from 'react-icons/lib/fa/bell'
 import Wechat from 'react-icons/lib/fa/wechat';
 import Badge from './Badge';
+import { Link } from 'react-router';
+import { Store_Posts } from '../stores';
+import { Act_Posts } from '../actions';
 
 export default class NavBar extends React.Component {
     constructor(props){
         super(props);
+        let query = Store_Posts.get('query');
+        this.updatemsg = this.updatemsg.bind(this);
+        this.searchpost = this.searchpost.bind(this);
+        this.state = {
+            query : query
+        };
+    }
+    updatemsg(e){
+        let query = this.state.query;
+        query.message = e.target.value;
+        this.setState({query : query});
+    }
+    searchpost(e){
+        Act_Posts.List(this.state.query);
     }
     render(){
         return (
@@ -35,8 +51,17 @@ export default class NavBar extends React.Component {
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <form className="navbar-form navbar-left" role="search">
                             <div className="input-group input-group-sm">
-                                <input type="text" className="form-control" placeholder="Enter Any Word to search" aria-describedby="sizing-addon3" />
-                                <span className="input-group-addon" id="sizing-addon3">
+                                <input
+                                    type="text"
+                                    value={this.state.query.message}
+                                    onChange={this.updatemsg}
+                                    className="form-control"
+                                    placeholder="Enter Any Word to search"
+                                    aria-describedby="sizing-addon3" />
+                                <span
+                                    onClick={this.searchpost}
+                                    className="btn btn-defaultbtn-sm input-group-addon"
+                                    id="sizing-addon3">
                                     <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
                                 </span>
                             </div>
