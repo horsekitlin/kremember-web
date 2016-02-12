@@ -1,5 +1,11 @@
-import Facebook from './Facebook';
+import Posts from './posts';
+import Createmember from './createmember';
+import Login from './login';
+import Post from './post';
 
 export default {
-    Facebook : Facebook,
+    Posts : Posts,
+    Post : Post,
+    Createmember : Createmember,
+    Login : Login,
 };
