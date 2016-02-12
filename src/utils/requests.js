@@ -3,6 +3,12 @@ require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
 export default {
+    format_headers : () => {
+        return {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        };
+    },
     fetch_to : (route, data, headers={
         'Accept': 'application/json',
         'Content-Type': 'application/json'

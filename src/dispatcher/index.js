@@ -7,7 +7,7 @@ class Dispatcher extends Flux.Dispatcher {
     }
     handleUsersAction(action){
         var payload = {
-            source: 'Member',
+            source: 'Users',
             action: action
         };
         this.dispatch(payload);

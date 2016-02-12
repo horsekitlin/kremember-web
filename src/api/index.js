@@ -6,6 +6,9 @@ import { Notifier } from '../stores';
 
 Notifier.dispatchToken = Dispatcher.register((evt) => {
     switch(evt.action.actionType){
+        case Constants.Member.GETDETAIL:
+            Member.getDetail(evt.action.data);
+            break;
         case Constants.Users.FBLOGIN:
             Users.Login(evt.action.data);
             break;
